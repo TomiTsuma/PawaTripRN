@@ -2,7 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { Provider } from 'react-redux';
-import HomeScreen from './screens/HomeScreen';
+import HomeScreen from './screens/Login';
 import Index from 'C:/Users/TSu/Documents/PawaTrip1/pawatrip-1/screens/index.js'
 import { store } from './store';
 import RootNavigator from 'C:/Users/TSu/Documents/PawaTrip1/pawatrip-1/screens/navigation/RootNavigator.js';
@@ -10,6 +10,8 @@ import IdScreen from 'C:/Users/TSu/Documents/PawaTrip1/pawatrip-1/screens/IdScre
 import PhoneNumberScreen from 'C:/Users/TSu/Documents/PawaTrip1/pawatrip-1/screens/PhoneNumberScreen';
 import ModeScreen from 'C:/Users/TSu/Documents/PawaTrip1/pawatrip-1/screens/ModeScreen';
 import MapScreen from './screens/MapScreen';
+import Login from './screens/Login';
+import Signup from './screens/Signup';
 
 import 'react-native-gesture-handler'
 import { NavigationContainer } from "@react-navigation/native";
@@ -25,16 +27,23 @@ export default function App() {
     <NavigationContainer>
     <SafeAreaProvider>
     <Stack.Navigator>
+    {/* <Stack.Screen
+        name = 'Login'
+        component = {Login}
+        options = {{
+          headerShown: true
+        }}
+      />
+    <Stack.Screen
+        name = 'Signup'
+        component = {Signup}
+        options = {{
+          headerShown: true
+        }}
+      /> */}
     <Stack.Screen
         name = 'index'
         component = {Index}
-        options = {{
-          headerShown: false
-        }}
-      />
-      <Stack.Screen
-        name = 'MapScreen'
-        component = {MapScreen}
         options = {{
           headerShown: false
         }}
@@ -46,6 +55,15 @@ export default function App() {
           headerShown: false
         }}
       />
+    
+      <Stack.Screen
+        name = 'MapScreen'
+        component = {MapScreen}
+        options = {{
+          headerShown: false
+        }}
+      />
+      
       <Stack.Screen
         name = 'RideOptionsCard'
         component = {RideOptionsCard}
