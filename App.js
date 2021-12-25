@@ -3,12 +3,12 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { Provider } from 'react-redux';
 import HomeScreen from './screens/Login';
-import Index from 'C:/Users/TSu/Documents/PawaTrip1/pawatrip-1/screens/index.js'
+import Index from './screens/index.js'
 import { store } from './store';
-import RootNavigator from 'C:/Users/TSu/Documents/PawaTrip1/pawatrip-1/screens/navigation/RootNavigator.js';
-import IdScreen from 'C:/Users/TSu/Documents/PawaTrip1/pawatrip-1/screens/IdScreen.js';
-import PhoneNumberScreen from 'C:/Users/TSu/Documents/PawaTrip1/pawatrip-1/screens/PhoneNumberScreen';
-import ModeScreen from 'C:/Users/TSu/Documents/PawaTrip1/pawatrip-1/screens/ModeScreen';
+import RootNavigator from './screens/navigation/RootNavigator.js';
+import IdScreen from './screens/IdScreen.js';
+import PhoneNumberScreen from './screens/PhoneNumberScreen';
+import ModeScreen from './screens/ModeScreen';
 import MapScreen from './screens/MapScreen';
 import Login from './screens/Login';
 import Signup from './screens/Signup';
@@ -17,7 +17,10 @@ import 'react-native-gesture-handler'
 import { NavigationContainer } from "@react-navigation/native";
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { createStackNavigator } from '@react-navigation/stack';
-import RideOptionsCard from 'C:/Users/TSu/Documents/PawaTrip1/pawatrip-1/screens/components/RideOptionsCard.js';
+import RideOptionsCard from './screens/components/RideOptionsCard.js';
+
+
+AppRegistry.registerComponent('Index', () => Index);
 
 export default function App() {
 
@@ -41,7 +44,7 @@ export default function App() {
           headerShown: true
         }}
       /> */}
-    <Stack.Screen
+      <Stack.Screen
         name = 'index'
         component = {Index}
         options = {{
@@ -55,6 +58,8 @@ export default function App() {
           headerShown: false
         }}
       />
+    
+      
     
       <Stack.Screen
         name = 'MapScreen'
@@ -77,6 +82,7 @@ export default function App() {
     </Provider>
   );
 }
+registerRootComponent(App);
 
 const styles = StyleSheet.create({
   container: {

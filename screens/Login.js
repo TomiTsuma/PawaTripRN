@@ -2,13 +2,52 @@ import React from 'react'
 import { Button,ImageBackground,StyleSheet, Text,Image,View,TextInput,TouchableOpacity, SafeAreaView} from 'react-native'
 import tw from 'tailwind-react-native-classnames'
 import { useState } from 'react';
-import logo from 'C:/Users/TSu/Documents/PawaTrip1/pawatrip-1/assets/logo.png'; 
+import { useNavigation } from '@react-navigation/core';
+import logo from '../assets/logo.png'; 
 // import 'react-native-gesture-handler';
+import { auth } from '../firebase'
+// import { GoogleSignin } from 'react-native-google-signin/google-signin';
 
+// GoogleSignin.configure({
+//   webClientId: '222655618418-56opdtgrudrssbflgolm41t3dgffki5t.apps.googleusercontent.com',
+// }); 
+const navigation = useNavigation()
+
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged(user => {
+      if (user) {
+        navigation.replace("Home")
+      }
+    })
+
+    return unsubscribe
+  }, [])
 
 const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+
+    const onGoogleButtonPress = () => {
+  //     // Get the users ID token
+  // const { idToken } =  GoogleSignin.signIn();
+
+  // // Create a Google credential with the token
+  // const googleCredential = auth.GoogleAuthProvider.credential(idToken);
+
+  // // Sign-in the user with the credential
+  // return auth().signInWithCredential(googleCredential);
+      
+    }
+
+    const handleLogin = () => {
+      auth
+        .signInWithEmailAndPassword(email, password)
+        .then(userCredentials => {
+          const user = userCredentials.user;
+          console.log('Logged in with:', user.email);
+        })
+        .catch(error => alert(error.message))
+    }
 
     return (
         <SafeAreaView style={styles.container}>
@@ -32,7 +71,8 @@ const Login = () => {
   />
 </View>
 <Button
-  title="Login"></Button>
+  title="Login"
+  onPress={handleLogin}></Button>
 <Text
   style={{marginTop:20}}>
       OR
@@ -41,7 +81,8 @@ const Login = () => {
   <View style={styles.loginbuttons}>
   <TouchableOpacity>
   <Image source = {{uri: "https://icones.pro/wp-content/uploads/2021/02/google-icone-symbole-png-logo-noir.png"}}
-             style={{width: 40, height: 40,margin:20}}/>
+             style={{width: 40, height: 40,margin:20}}
+             onPress={() => onGoogleButtonPress().then(() => console.log('Signed in with Google!'))}/>
              </TouchableOpacity>
              <TouchableOpacity>
    <Image source = {{uri: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSetN3GYmYgghuFoDrgJa_A7z_ZHvrsF1ZXHw&usqp=CAU"}}

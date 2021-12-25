@@ -2,20 +2,20 @@ import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { ImageBackground, ImageBackgroundBase, StyleSheet, Text, View } from 'react-native';
 import { Provider } from 'react-redux';
-import HomeScreen from './screens/HomeScreen';
-import Index from 'C:/Users/TSu/Documents/PawaTrip1/pawatrip-1/screens/index.js'
+import HomeScreen from './HomeScreen';
+import Index from './index.js'
 import { store } from './store';
-import RootNavigator from 'C:/Users/TSu/Documents/PawaTrip1/pawatrip-1/screens/navigation/RootNavigator.js';
-import IdScreen from 'C:/Users/TSu/Documents/PawaTrip1/pawatrip-1/screens/IdScreen.js';
-import PhoneNumberScreen from 'C:/Users/TSu/Documents/PawaTrip1/pawatrip-1/screens/PhoneNumberScreen';
-import ModeScreen from 'C:/Users/TSu/Documents/PawaTrip1/pawatrip-1/screens/ModeScreen';
-import MapScreen from './screens/MapScreen';
+import RootNavigator from './navigation/RootNavigator.js';
+import IdScreen from './IdScreen.js';
+import PhoneNumberScreen from './PhoneNumberScreen';
+import ModeScreen from './ModeScreen';
+import MapScreen from './MapScreen';
 
 import 'react-native-gesture-handler'
 import { NavigationContainer } from "@react-navigation/native";
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
-import RideOptionsCard from 'C:/Users/TSu/Documents/PawaTrip1/pawatrip-1/screens/components/RideOptionsCard.js';
-import logo from 'C:/Users/TSu/Documents/PawaTrip1/pawatrip-1/assets/logo.png'; 
+import RideOptionsCard from './components/RideOptionsCard.js';
+import logo from '../assets/logo.png'; 
 import NavigateCard from './components/NavigateCard';
 import { TextInput } from 'react-native-gesture-handler';
 

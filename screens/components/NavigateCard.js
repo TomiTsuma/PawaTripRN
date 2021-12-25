@@ -3,9 +3,9 @@ import { StyleSheet, Text, View, SafeAreaView , Image} from 'react-native'
 import { BackgroundImage } from 'react-native-elements/dist/config'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 import tw from 'tailwind-react-native-classnames'
-import curr_loc from 'C:/Users/TSu/Documents/PawaTrip1/pawatrip-1/assets/curr_loc.png'
-import dest from 'C:/Users/TSu/Documents/PawaTrip1/pawatrip-1/assets/dest.png'
-import transition from 'C:/Users/TSu/Documents/PawaTrip1/pawatrip-1/assets/transition.png'
+import curr_loc from '../../assets/curr_loc.png'
+import dest from '../../assets/dest.png'
+import transition from '../../assets/transition.png'
 
 const NavigateCard = () => {
     return (

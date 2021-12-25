@@ -1,11 +1,24 @@
 import React from 'react'
 import { StyleSheet, Text, View, SafeAreaView,TextInput, ImageBackground } from 'react-native'
 import { useState } from 'react';
-import logo from 'C:/Users/TSu/Documents/PawaTrip1/pawatrip-1/assets/logo.png'; 
+import logo from '../assets/logo.png'; 
+import { useNavigation } from '@react-navigation/native';
 
 
 const PhoneNumberScreen = () => {
     const [phone, setPhone] = useState('');
+    const setPhoneNumber = () =>{
+        
+    }
+    const navigation = useNavigation();
+
+  useEffect(() => {
+    
+        navigation.replace("Mode")
+      
+    })
+
+   
     return (
         <SafeAreaView style={styles.container}>
             <Image

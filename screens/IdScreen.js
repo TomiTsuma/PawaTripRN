@@ -1,15 +1,27 @@
 import React from 'react'
 import { Image, SafeAreaView,StyleSheet, Text,TextInput, View } from 'react-native'
 import { useState } from 'react';
-import logo from 'C:/Users/TSu/Documents/PawaTrip1/pawatrip-1/assets/logo.png'; 
+import logo from '../assets/logo.png'; 
 import { Button } from 'react-native-elements';
+import { useNavigation } from '@react-navigation/native';
 
 const IdScreen = () => {
     const [id, setID] = useState('');
+    const setIDNumber = () =>{
+
+    }
+    const navigation = useNavigation()
+
+  useEffect(() => {
+   
+        navigation.replace("Home")
+      
+    })
+
     return (
         <SafeAreaView style={styles.container}>
             <Image
-            source={{logo}}
+            source={logo}
             style={{width: "100%", height: "100%",margin:0,position:"absolute"}}>
         
         </Image>

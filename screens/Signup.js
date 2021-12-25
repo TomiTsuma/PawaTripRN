@@ -2,7 +2,7 @@ import React from 'react'
 import { ImageBackground,StyleSheet, Text,Image,View,TextInput,TouchableOpacity, SafeAreaView} from 'react-native'
 import tw from 'tailwind-react-native-classnames'
 import { useState } from 'react';
-import logo from 'C:/Users/TSu/Documents/PawaTrip1/pawatrip-1/assets/logo.png'; 
+import logo from '../assets/logo.png'; 
 // import 'react-native-gesture-handler';
 
 

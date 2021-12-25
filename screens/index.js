@@ -1,9 +1,13 @@
 import React from 'react';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 
-import Signup from 'C:/Users/TSu/Documents/PawaTrip1/pawatrip-1/screens/Signup.js';
-import { SafeAreaView, View } from 'react-native';
+import Signup from './Signup.js';
+import { AppRegistry, SafeAreaView, View } from 'react-native';
 import Login from './Login.js';
+import App from "../App"
+
+AppRegistry.registerComponent('App', () => App);
+
 
 const Tab = createMaterialTopTabNavigator();
 

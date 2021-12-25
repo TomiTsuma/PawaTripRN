@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, SafeAreaView} from 'react-native'
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete'
 import { GOOGLE_MAPS_API_KEY } from "@env"
 import tw from "tailwind-react-native-classnames";
-import Map from 'C:/Users/TSu/Documents/PawaTrip1/pawatrip-1/screens/components/Map.js';
+import Map from './components/Map.js';
 import NavigateCard from './components/NavigateCard';
 const MapScreen = () => {
 

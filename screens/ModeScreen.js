@@ -1,8 +1,8 @@
 import React from 'react'
 import { StyleSheet, Text, View, SafeAreaView, Image, TouchableOpacity} from 'react-native'
-import bookride from "C:/Users/TSu/Documents/PawaTrip1/pawatrip-1/assets/bookride.png"
-import offerride from "C:/Users/TSu/Documents/PawaTrip1/pawatrip-1/assets/offerride.png"
-import logo from 'C:/Users/TSu/Documents/PawaTrip1/pawatrip-1/assets/logo.png'; 
+import bookride from "../assets/bookride.png"
+import offerride from "../assets/offerride.png"
+import logo from '../assets/logo.png'; 
 
 
 const ModeScreen = () => {
