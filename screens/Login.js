@@ -1,168 +1,194 @@
-import React from 'react'
-import { Button,ImageBackground,StyleSheet, Text,Image,View,TextInput,TouchableOpacity, SafeAreaView} from 'react-native'
-import tw from 'tailwind-react-native-classnames'
-import { useState } from 'react';
-import { useNavigation } from '@react-navigation/core';
-import logo from '../assets/logo.png'; 
-// import 'react-native-gesture-handler';
-import { auth } from '../firebase'
-// import { GoogleSignin } from 'react-native-google-signin/google-signin';
+// import React from 'react'
+// import { Button,ImageBackground,StyleSheet, Text,Image,View,TextInput,TouchableOpacity, SafeAreaView} from 'react-native'
+// import tw from 'tailwind-react-native-classnames'
+// import { useState } from 'react';
+// import { useNavigation } from '@react-navigation/core';
+// import logo from '../assets/logo.png'; 
+// import { LoginManager, AccessToken } from 'react-native-fbsdk-next';
 
-// GoogleSignin.configure({
-//   webClientId: '222655618418-56opdtgrudrssbflgolm41t3dgffki5t.apps.googleusercontent.com',
-// }); 
-const navigation = useNavigation()
+// // import 'react-native-gesture-handler';
+// import { auth } from '../firebase'
+// //import { GoogleSignin } from '@react-native-google-signin/google-signin';
 
-  useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged(user => {
-      if (user) {
-        navigation.replace("Home")
-      }
-    })
+// // GoogleSignin.configure({
+// //   webClientId: '222655618418-56opdtgrudrssbflgolm41t3dgffki5t.apps.googleusercontent.com',
+// // }); 
+// const navigation = useNavigation()
 
-    return unsubscribe
-  }, [])
+//   useEffect(() => {
+//     const unsubscribe = auth.onAuthStateChanged(user => {
+//       if (user) {
+//         navigation.replace("Home")
+//       }
+//     })
 
-const Login = () => {
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+//     return unsubscribe
+//   }, [])
 
-    const onGoogleButtonPress = () => {
-  //     // Get the users ID token
-  // const { idToken } =  GoogleSignin.signIn();
+// const Login = () => {
+//     const [email, setEmail] = useState('');
+//     const [password, setPassword] = useState('');
 
-  // // Create a Google credential with the token
-  // const googleCredential = auth.GoogleAuthProvider.credential(idToken);
+//     const onGoogleButtonPress = () => {
+//       // // Get the users ID token
+//       // const { idToken } =  GoogleSignin.signIn();
 
-  // // Sign-in the user with the credential
-  // return auth().signInWithCredential(googleCredential);
+//       // // Create a Google credential with the token
+//       // const googleCredential = auth.GoogleAuthProvider.credential(idToken);
+
+//       // // Sign-in the user with the credential
+//       // return auth().signInWithCredential(googleCredential);
       
-    }
+//     }
 
-    const handleLogin = () => {
-      auth
-        .signInWithEmailAndPassword(email, password)
-        .then(userCredentials => {
-          const user = userCredentials.user;
-          console.log('Logged in with:', user.email);
-        })
-        .catch(error => alert(error.message))
-    }
+//     async function onFacebookButtonPress  () {
+//       const result = await LoginManager.logInWithPermissions(['public_profile','email'])
+//       if(result.isCancelled){
+//         throw 'Cancelled';
+//       }
 
-    return (
-        <SafeAreaView style={styles.container}>
+//       //Once signed in we get the user Access Token
+//       const data = await AccessToken.getCurrentAccessToken();
+
+//       if(!data){
+//         throw 'Something went wrong obtaining access token';
+//       }
+
+//       //Create Firebase credential with the access token
+//       const facebookCredential = auth.FacebookAuthProvider.credentail(data.accessToken);
+
+//       //Sign-in the user with the credential
+//       return auth().signInWithCredential(facebookCredential);
+//     }
+
+
+
+//     const handleLogin = () => {
+//       auth
+//         .signInWithEmailAndPassword(email, password)
+//         .then(userCredentials => {
+//           const user = userCredentials.user;
+//           console.log('Logged in with:', user.email);
+//         })
+//         .catch(error => alert(error.message))
+//     }
+
+//     return (
+//         <SafeAreaView style={styles.container}>
    
-<View style={styles.inputView2}>
-  <TextInput
-    style={styles.TextInput}
-    placeholder="Email."
-    placeholderTextColor="#003f5c"
-    onChangeText={(email) => setEmail(email)}
-  />
-</View>
+// <View style={styles.inputView2}>
+//   <TextInput
+//     style={styles.TextInput}
+//     placeholder="Email."
+//     placeholderTextColor="#003f5c"
+//     onChangeText={(email) => setEmail(email)}
+//   />
+// </View>
  
-<View style={styles.inputView}>
-  <TextInput
-    style={styles.TextInput}
-    placeholder="Password."
-    placeholderTextColor="#003f5c"
-    secureTextEntry={true}
-    onChangeText={(password) => setPassword(password)}
-  />
-</View>
-<Button
-  title="Login"
-  onPress={handleLogin}></Button>
-<Text
-  style={{marginTop:20}}>
-      OR
-  </Text>
+// <View style={styles.inputView}>
+//   <TextInput
+//     style={styles.TextInput}
+//     placeholder="Password."
+//     placeholderTextColor="#003f5c"
+//     secureTextEntry={true}
+//     onChangeText={(password) => setPassword(password)}
+//   />
+// </View>
+// <Button
+//   title="Login"
+//   onPress={handleLogin}></Button>
+// <Text
+//   style={{marginTop:20}}>
+//       OR
+//   </Text>
 
-  <View style={styles.loginbuttons}>
-  <TouchableOpacity>
-  <Image source = {{uri: "https://icones.pro/wp-content/uploads/2021/02/google-icone-symbole-png-logo-noir.png"}}
-             style={{width: 40, height: 40,margin:20}}
-             onPress={() => onGoogleButtonPress().then(() => console.log('Signed in with Google!'))}/>
-             </TouchableOpacity>
-             <TouchableOpacity>
-   <Image source = {{uri: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSetN3GYmYgghuFoDrgJa_A7z_ZHvrsF1ZXHw&usqp=CAU"}}
-             style={{width: 40, height: 40,margin:20}}/>
-             </TouchableOpacity>
-             <TouchableOpacity>
-             <Image source = {{uri: "https://www.iconpacks.net/icons/2/free-mobile-phone-icon-2636-thumb.png"}}
-             style={{width: 40, height: 40,margin:20}}/>
-</TouchableOpacity>
+//   <View style={styles.loginbuttons}>
+//   <TouchableOpacity>
+//   <Image source = {{uri: "https://icones.pro/wp-content/uploads/2021/02/google-icone-symbole-png-logo-noir.png"}}
+//              style={{width: 40, height: 40,margin:20}}
+//              onPress={() => onGoogleButtonPress().then(() => console.log('Signed in with Google!'))}/>
+//              </TouchableOpacity>
+//              <TouchableOpacity>
+//    <Image source = {{uri: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSetN3GYmYgghuFoDrgJa_A7z_ZHvrsF1ZXHw&usqp=CAU"}}
+//              style={{width: 40, height: 40,margin:20}}
+//              onPress={() => onFacebookButtonPress().then(() => console.log('Signed in with Facebook!'))}
+//              />
+//              </TouchableOpacity>
+//              <TouchableOpacity>
+//              <Image source = {{uri: "https://www.iconpacks.net/icons/2/free-mobile-phone-icon-2636-thumb.png"}}
+//              style={{width: 40, height: 40,margin:20}}/>
+// </TouchableOpacity>
   
     
-</View>
+// </View>
 
 
 
 
 
 
-<TouchableOpacity style={{marginTop:50}}> 
-  <Text style={styles.forgot_button}>Forgot Password?</Text>
-</TouchableOpacity>
-        </SafeAreaView>
-    )
-}
+// <TouchableOpacity style={{marginTop:50}}> 
+//   <Text style={styles.forgot_button}>Forgot Password?</Text>
+// </TouchableOpacity>
+//         </SafeAreaView>
+//     )
+// }
 
 
-export default Login;
+// export default Login;
 
-const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      backgroundColor: '#fff',
-      alignItems: 'center',
-      justifyContent: 'center',
+// const styles = StyleSheet.create({
+//     container: {
+//       flex: 1,
+//       backgroundColor: '#fff',
+//       alignItems: 'center',
+//       justifyContent: 'center',
       
-    },
-    inputView: {
-        backgroundColor: "#f0f1f5",
-        borderRadius: 20,
-        width: "80%",
-        height: 45,
-        marginBottom: 20,
-        alignItems: "center",
-      },
-      inputView2: {
-        backgroundColor: "#f0f1f5",
-        borderRadius: 20,
-        width: "80%",
-        height: 45,
-        marginBottom: 20,
-        marginTop:-510,
-        alignItems: "center",
-      },
+//     },
+//     inputView: {
+//         backgroundColor: "#f0f1f5",
+//         borderRadius: 20,
+//         width: "80%",
+//         height: 45,
+//         marginBottom: 20,
+//         alignItems: "center",
+//       },
+//       inputView2: {
+//         backgroundColor: "#f0f1f5",
+//         borderRadius: 20,
+//         width: "80%",
+//         height: 45,
+//         marginBottom: 20,
+//         marginTop:-510,
+//         alignItems: "center",
+//       },
       
-      TextInput: {
-        height: 50,
-        width:300,
-        flex: 1,
-        padding: 10,
-        marginLeft: 20,
-      },
+//       TextInput: {
+//         height: 50,
+//         width:300,
+//         flex: 1,
+//         padding: 10,
+//         marginLeft: 20,
+//       },
       
-      forgot_button: {
-        height: 30,
-        marginBottom: 1,
-      },
-      loginbuttons: {
-          flexDirection:"row",
-        height: 30,
-        margin: 10,
+//       forgot_button: {
+//         height: 30,
+//         marginBottom: 1,
+//       },
+//       loginbuttons: {
+//           flexDirection:"row",
+//         height: 30,
+//         margin: 10,
 
-      },
-      loginBtn:
- {
-   width:"80%",
-   borderRadius:25,
-   height:50,
-   alignItems:"center",
-   justifyContent:"center",
-   marginTop:10,
-   backgroundColor:"#FF1493",
- }
-  });
+//       },
+//       loginBtn:
+//  {
+//    width:"80%",
+//    borderRadius:25,
+//    height:50,
+//    alignItems:"center",
+//    justifyContent:"center",
+//    marginTop:10,
+//    backgroundColor:"#FF1493",
+//  }
+//   });

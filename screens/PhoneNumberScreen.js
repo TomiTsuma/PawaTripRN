@@ -1,28 +1,38 @@
 import React from 'react'
-import { StyleSheet, Text, View, SafeAreaView,TextInput, ImageBackground } from 'react-native'
+import { StyleSheet, Text, View, SafeAreaView,TextInput,Image,Button, ImageBackground } from 'react-native'
 import { useState } from 'react';
 import logo from '../assets/logo.png'; 
 import { useNavigation } from '@react-navigation/native';
+import { auth, database } from '../firebase';
 
 
 const PhoneNumberScreen = () => {
     const [phone, setPhone] = useState('');
+    const user = auth.currentUser;
     const setPhoneNumber = () =>{
+        database()
+        .ref(('/users/').concat(user))
+        .set({
+            PhoneNumber: phone,
+          })
+          .then(() => console.log('Data set.'));
+
+
+          const navigation = useNavigation()
+
+          React.useEffect(() => {
+           
+                navigation.replace("Home")
+              
+            })
         
     }
-    const navigation = useNavigation();
-
-  useEffect(() => {
     
-        navigation.replace("Mode")
-      
-    })
-
    
     return (
         <SafeAreaView style={styles.container}>
             <Image
-            source={{logo}}
+            source={logo}
             style={{width: "100%", height: "100%",margin:0,position:"absolute"}}>
         
         </Image>
@@ -39,6 +49,7 @@ const PhoneNumberScreen = () => {
             </View>
             <Button
                     title="Continue"
+                    onPress={setPhoneNumber}
                     ></Button>
         </SafeAreaView>
     )

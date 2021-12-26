@@ -4,19 +4,30 @@ import { useState } from 'react';
 import logo from '../assets/logo.png'; 
 import { Button } from 'react-native-elements';
 import { useNavigation } from '@react-navigation/native';
+import { database } from '../firebase';
+import { auth } from '../firebase';
 
 const IdScreen = () => {
     const [id, setID] = useState('');
+    const user = auth.currentUser;
     const setIDNumber = () =>{
+        database()
+        .ref(('/users/').concat(user))
+        .set({
+            IDNumber: id,
+          })
+          .then(() => console.log('Data set.'));
 
+
+          const navigation = useNavigation()
+
+          React.useEffect(() => {
+           
+                navigation.replace("Home")
+              
+            })
     }
-    const navigation = useNavigation()
-
-  useEffect(() => {
-   
-        navigation.replace("Home")
-      
-    })
+    
 
     return (
         <SafeAreaView style={styles.container}>
@@ -36,10 +47,11 @@ const IdScreen = () => {
                     placeholder="Identification Number."
                     placeholderTextColor="#003f5c"
                     onChangeText={(id) => setID(id)}/>
-                <Button
-                    title="Continue"
-                    ></Button>
+                
             </View>
+            <Button
+                    title="Continue"
+                    onPress ={setIDNumber}></Button>
         </SafeAreaView>
     )
 }

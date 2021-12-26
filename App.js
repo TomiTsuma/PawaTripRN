@@ -20,7 +20,6 @@ import { createStackNavigator } from '@react-navigation/stack';
 import RideOptionsCard from './screens/components/RideOptionsCard.js';
 
 
-AppRegistry.registerComponent('Index', () => Index);
 
 export default function App() {
 
@@ -44,26 +43,36 @@ export default function App() {
           headerShown: true
         }}
       /> */}
-      <Stack.Screen
-        name = 'index'
-        component = {Index}
+      {/* <Stack.Screen
+        name = 'PhoneNumberScreen'
+        component = {PhoneNumberScreen}
         options = {{
           headerShown: false
         }}
-      />
-      <Stack.Screen
+      /> */}
+
+
+      {/* <Stack.Screen
         name = 'IdScreen'
         component = {IdScreen}
         options = {{
           headerShown: false
         }}
-      />
+      /> */}
     
+      {/* <Stack.Screen
+        name = 'index'
+        component = {Index}
+        options = {{
+          headerShown: false
+        }}
+      /> */}
+      
       
     
       <Stack.Screen
-        name = 'MapScreen'
-        component = {MapScreen}
+        name = 'ModeScreen'
+        component = {ModeScreen}
         options = {{
           headerShown: false
         }}
@@ -82,7 +91,6 @@ export default function App() {
     </Provider>
   );
 }
-registerRootComponent(App);
 
 const styles = StyleSheet.create({
   container: {

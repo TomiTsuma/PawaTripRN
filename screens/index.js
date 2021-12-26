@@ -6,7 +6,6 @@ import { AppRegistry, SafeAreaView, View } from 'react-native';
 import Login from './Login.js';
 import App from "../App"
 
-AppRegistry.registerComponent('App', () => App);
 
 
 const Tab = createMaterialTopTabNavigator();
