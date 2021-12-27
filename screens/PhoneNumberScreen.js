@@ -2,31 +2,32 @@ import React from 'react'
 import { StyleSheet, Text, View, SafeAreaView,TextInput,Image,Button, ImageBackground } from 'react-native'
 import { useState } from 'react';
 import logo from '../assets/logo.png'; 
-import { useNavigation } from '@react-navigation/native';
 import { auth, database } from '../firebase';
+import { useNavigation } from '@react-navigation/core';
 
 
 const PhoneNumberScreen = () => {
     const [phone, setPhone] = useState('');
     const user = auth.currentUser;
-    const setPhoneNumber = () =>{
-        database()
-        .ref(('/users/').concat(user))
-        .set({
-            PhoneNumber: phone,
-          })
-          .then(() => console.log('Data set.'));
+    // const setPhoneNumber = () =>{
+    //     database()
+    //     .ref(('/users/').concat(user))
+    //     .set({
+    //         PhoneNumber: phone,
+    //       })
+    //       .then(() => console.log('Data set.'));
 
 
-          const navigation = useNavigation()
+    //       const navigation = useNavigation()
 
-          React.useEffect(() => {
+    //       React.useEffect(() => {
            
-                navigation.replace("Home")
+    //             navigation.replace("Home")
               
-            })
+    //         })
         
-    }
+    // }
+    
     
    
     return (
@@ -49,7 +50,6 @@ const PhoneNumberScreen = () => {
             </View>
             <Button
                     title="Continue"
-                    onPress={setPhoneNumber}
                     ></Button>
         </SafeAreaView>
     )

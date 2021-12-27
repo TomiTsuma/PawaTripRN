@@ -33,62 +33,48 @@ export default function App() {
     <NavigationContainer>
     <SafeAreaProvider>
     <Stack.Navigator>
-    {/* <Stack.Screen
-        name = 'Login'
-        component = {Login}
-        options = {{
-          headerShown: true
-        }}
-      />
-    <Stack.Screen
-        name = 'Signup'
-        component = {Signup}
-        options = {{
-          headerShown: true
-        }}
-      /> */}
-      {/* <Stack.Screen
+      <Stack.Screen
         name = 'PhoneNumberScreen'
         component = {PhoneNumberScreen}
         options = {{
           headerShown: false
         }}
-      /> */}
+      />
 
 
-      {/* <Stack.Screen
+      <Stack.Screen
         name = 'IdScreen'
         component = {IdScreen}
         options = {{
           headerShown: false
         }}
-      /> */}
+      />
     
-      {/* <Stack.Screen
+      <Stack.Screen
         name = 'index'
         component = {Index}
         options = {{
           headerShown: false
         }}
-      /> */}
+      />
       
       
     
       <Stack.Screen
-        name = 'BookingDetails'
-        component = {BookingDetails}
+        name = 'MapScreen'
+        component = {MapScreen}
         options = {{
           headerShown: false
         }}
       />
       
-      {/* <Stack.Screen
+      <Stack.Screen
         name = 'RideOptionsCard'
         component = {RideOptionsCard}
         options = {{
           headerShown: false
         }}
-      /> */}
+      />
     </Stack.Navigator>
     </SafeAreaProvider>
     </NavigationContainer>

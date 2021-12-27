@@ -8,12 +8,13 @@ import dest from '../../assets/dest.png'
 import transition from '../../assets/transition.png'
 import bkg from '../../assets/driver_background.png'
 
+
 const NavigateCard = () => {
     return (
         <SafeAreaView >
-            {/* <ImageBackground source={bkg}
-                style = {{width:250,height:150}}> */}
+           
             <View style={styles.container1}>
+                
                 
             <View style={styles.container2}>
             <Image source = {curr_loc}
@@ -28,15 +29,13 @@ const NavigateCard = () => {
             <TouchableOpacity>
             <Text style={tw` text-sm mb-5` }>Current Location</Text>
             </TouchableOpacity>
-            
-            <Text style={tw` text-sm mt-5` }>Drop off</Text>
+            <Text style={tw` text-sm mt-3` }>Drop off</Text>
             <TouchableOpacity>
-            <Text style={tw` text-sm ` }>Destination</Text>
+            <Text style={tw`text-sm` }>Destination</Text>
             </TouchableOpacity>
 
             </View>
             </View>
-            {/* </ImageBackground> */}
 
         </SafeAreaView>
     )
@@ -46,19 +45,16 @@ export default NavigateCard
 
 const styles = StyleSheet.create({
     container1:{
-        flex: 1,
         flexDirection :"row",
         width:300,
         height:300
         
     },
     container2:{
-        flex: 0,
         flexDirection :"column"
         
     },
     container3:{
-        flex: 0,
         flexDirection :"column",
         marginStart:20,
         
