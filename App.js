@@ -13,6 +13,7 @@ import MapScreen from './screens/MapScreen';
 import Login from './screens/Login';
 import Signup from './screens/Signup';
 import RideDetails from './screens/RideDetails'
+import PriceDetails from './screens/PriceDetails'
 
 import 'react-native-gesture-handler'
 import { NavigationContainer } from "@react-navigation/native";
@@ -72,8 +73,8 @@ export default function App() {
       
     
       <Stack.Screen
-        name = 'RideDetails'
-        component = {RideDetails}
+        name = 'PriceDetails'
+        component = {PriceDetails}
         options = {{
           headerShown: false
         }}

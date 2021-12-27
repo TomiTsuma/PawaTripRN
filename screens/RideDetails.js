@@ -19,6 +19,7 @@ import bkg from '../assets/driver_background.png'
 import carpoolersbkg from '../assets/carpooler_background.png'
 import plus from '../assets/plus.png'
 import minus from '../assets/minus.png'
+import back from '../assets/back.png'
 import NavigateCard from './components/NavigateCard';
 import { TextInput } from 'react-native-gesture-handler';
 
@@ -27,11 +28,12 @@ export default function App() {
   return (
     <SafeAreaView style={{width: "100%", height: "100%"}}>
         <Image
-            source={logo}
+            source={back}
             style={{width: "100%", height: "100%",margin:0,position:"absolute"}}>
         
         </Image>
-        <View style = {{width: "100%", height: "100%",marginTop:140,marginBottom:10,marginLeft:50,flexDirection:"column",alignItems:"left"}}>
+        <Text style={styles.title}>Ride Details</Text>
+        <View style = {{width: "100%", height: "100%",marginTop:40,marginBottom:10,marginLeft:50,flexDirection:"column",alignItems:"left"}}>
         <NavigateCard ></NavigateCard>
         <View style = {{width: "100%", height: 30,marginTop:10,marginBottom:10,marginLeft:-10,marginRight:20,flex:1,flexDirection:"row"}}>
             <View style={{marginRight:100}} >
@@ -87,4 +89,10 @@ const styles = StyleSheet.create({
     margin: 40,
 
   },
+  title:{
+    color:'#ffffff',
+    alignSelf:'center',
+    marginTop:50,
+    fontSize:25
+  }
 });
