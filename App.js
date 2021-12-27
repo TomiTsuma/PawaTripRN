@@ -14,6 +14,7 @@ import Login from './screens/Login';
 import Signup from './screens/Signup';
 import RideDetails from './screens/RideDetails'
 import PriceDetails from './screens/PriceDetails'
+import CarpoolerCard  from './screens/components/CarpoolerCard';
 
 import 'react-native-gesture-handler'
 import { NavigationContainer } from "@react-navigation/native";
@@ -73,8 +74,8 @@ export default function App() {
       
     
       <Stack.Screen
-        name = 'PriceDetails'
-        component = {PriceDetails}
+        name = 'CarpoolerCard'
+        component = {CarpoolerCard}
         options = {{
           headerShown: false
         }}

@@ -11,15 +11,15 @@ import bkg from '../../assets/driver_background.png'
 const NavigateCard = () => {
     return (
         <SafeAreaView >
-            <ImageBackground source={bkg}
-                style = {{width:250,height:150}}>
+            {/* <ImageBackground source={bkg}
+                style = {{width:250,height:150}}> */}
             <View style={styles.container1}>
                 
             <View style={styles.container2}>
             <Image source = {curr_loc}
                    style={{width: 20, height: 20,marginTop:20, marginStart:20}}/>  
             <Image source = {transition}
-                   style={{width: 3, height: 60,marginStart:30}}/>   
+                   style={{width: 3, height: 50,marginStart:27}}/>   
             <Image source = {dest}
                    style={{width: 20, height: 28,marginStart:20}}/>     
             </View>
@@ -36,7 +36,7 @@ const NavigateCard = () => {
 
             </View>
             </View>
-            </ImageBackground>
+            {/* </ImageBackground> */}
 
         </SafeAreaView>
     )
@@ -47,7 +47,9 @@ export default NavigateCard
 const styles = StyleSheet.create({
     container1:{
         flex: 1,
-        flexDirection :"row"
+        flexDirection :"row",
+        width:300,
+        height:300
         
     },
     container2:{
@@ -55,7 +57,7 @@ const styles = StyleSheet.create({
         flexDirection :"column"
         
     },
-    container2:{
+    container3:{
         flex: 0,
         flexDirection :"column",
         marginStart:20,
