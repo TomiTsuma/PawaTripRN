@@ -21,6 +21,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { createStackNavigator } from '@react-navigation/stack';
 import RideOptionsCard from './screens/components/RideOptionsCard.js';
+import BookingDetails from './screens/BookingDetails';
 
 
 
@@ -74,20 +75,20 @@ export default function App() {
       
     
       <Stack.Screen
-        name = 'CarpoolerCard'
-        component = {CarpoolerCard}
+        name = 'BookingDetails'
+        component = {BookingDetails}
         options = {{
           headerShown: false
         }}
       />
       
-      <Stack.Screen
+      {/* <Stack.Screen
         name = 'RideOptionsCard'
         component = {RideOptionsCard}
         options = {{
           headerShown: false
         }}
-      />
+      /> */}
     </Stack.Navigator>
     </SafeAreaProvider>
     </NavigationContainer>
